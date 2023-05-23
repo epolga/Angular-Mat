@@ -1,6 +1,59 @@
 <body>
-  <app-nav-menu></app-nav-menu>
-  <main class="container">
+  <mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav>
+      <mat-nav-list (click)="sidenav.close()">
+        <a mat-list-item routerLink="/">
+          <mat-icon>house</mat-icon>
+          <span>Home</span>
+        </a>
+        <a mat-list-item routerLink="/fetch-data">
+          <mat-icon>library_books</mat-icon>
+          <span>Fetch</span>
+        </a>
+        <a mat-list-item routerLink="/counter">
+          <mat-icon>looks_two</mat-icon>
+          <span>Counter</span>
+        </a>
+        <a mat-list-item routerLink="drag-drop-example">
+          <mat-icon>drag_indicator</mat-icon>
+          <span>Drag and Drop</span>
+        </a>
+
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-toolbar color="accent">
+
+      <button mat-icon-button (click)="sidenav.open()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <a mat-button [matMenuTriggerFor]="dropdown">
+        Screens
+      </a>
+
+      <mat-menu #dropdown>
+
+        <button mat-menu-item routerLink="/">Courses</button>
+
+        <button mat-menu-item routerLink="/about">About</button>
+
+      </mat-menu>
+
+
+      <a mat-button>
+        <mat-icon>person_add</mat-icon>
+        Register
+      </a>
+
+      <a mat-button>
+        <mat-icon>account_circle</mat-icon>
+        Login
+      </a>
+
+    </mat-toolbar>
+
     <router-outlet></router-outlet>
-  </main>
+
+  </mat-sidenav-container>
 </body>
